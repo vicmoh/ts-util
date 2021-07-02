@@ -1,0 +1,30 @@
+{
+  "name": "ts-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicmoh/ts-util.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vicmoh/ts-util/issues"
+  },
+  "homepage": "https://github.com/vicmoh/ts-util#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.6",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "ts-jest": "^27.0.3"
+  }
+}
