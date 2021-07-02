@@ -5,5 +5,5 @@ test("toFirstCharUpper() should converts the first char to upper case.", () => {
 });
 
 test("toAllWordsFirstCharUpper() should converts all words of first character to upper case.", () => {
-  expect(str("some string").toAllWordsFirstCharUpper() === "Some String");
+  expect(str("some string").toAllWordsFirstCharUpper() === "Some String").toBe(true);
 });
