@@ -1,6 +1,6 @@
 import { Log } from "../src/log";
 
-const log = new Log({ disable: true });
+const log = new Log({ disable: false });
 
 const LOG_MESS = "This is a log message.";
 class Test {}
@@ -23,4 +23,13 @@ test("log() should output the correct result.", () => {
 
   const t3 = log.print("someFunction(): ", LOG_MESS);
   expect(t3 === `someFunction(): ${LOG_MESS}`).toBe(true);
+});
+
+test("Log() should convert object to JSON readable.", () => {
+  const t1 = {
+    s1: "hello",
+    s2: "world",
+  };
+  const res = log.print("someFunction", t1);
+  expect(res === 'someFunction(): {"s1":"hello","s2":"world"}').toBe(true);
 });

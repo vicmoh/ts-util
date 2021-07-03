@@ -24,7 +24,13 @@ export class Log {
     }
 
     className = className.replace(/[^\w]+/g, "");
-    const res = className.toString() + "(): " + message?.toString();
+    let mess: string = message?.toString();
+    try {
+      if (typeof message === "object") mess = JSON.stringify(message ?? "{}");
+    } catch (err) {
+      mess = message?.toString();
+    }
+    const res = className.toString() + "(): " + mess;
 
     if (!DISABLE_PRINT && !this.disable) console.log(res);
     return res;
