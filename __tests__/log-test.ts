@@ -1,6 +1,6 @@
 import { Log } from "../src/log";
 
-const log = new Log({ disable: false });
+const log = new Log({ disable: true });
 
 const LOG_MESS = "This is a log message.";
 class Test {}
