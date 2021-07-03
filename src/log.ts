@@ -1,19 +1,32 @@
 /**
- * Log message based on the debug.
- * @param object or functions name.
- * @param message of the debug.
+ * Global setter of weather print should be shown.
  */
-export function log(object: any, ...message: any) {
-  let className;
-  if (typeof object === "string") {
-    className = object?.toString();
-  } else {
-    className =
-      object?.constructor?.name ?? object?.toString() ?? "[UNDEFINED]";
+export let DISABLE_PRINT = false;
+
+export class Log {
+  private disable: boolean = false;
+  constructor(options?: { disable: boolean }) {
+    this.disable = options?.disable ?? false;
   }
 
-  className = className.replace(/[^\w]+/g, "");
-  const res = className.toString() + "(): " + message.toString();
-  console.log(res);
-  return res;
+  /**
+   * Log message based on the debug.
+   * @param object or functions name.
+   * @param message of the debug.
+   */
+  print(object: any, ...message: any) {
+    let className;
+    if (typeof object === "string") {
+      className = object?.toString();
+    } else {
+      className =
+        object?.constructor?.name ?? object?.toString() ?? "[UNDEFINED]";
+    }
+
+    className = className.replace(/[^\w]+/g, "");
+    const res = className.toString() + "(): " + message.toString();
+
+    if (!DISABLE_PRINT && !this.disable) console.log(res);
+    return res;
+  }
 }
