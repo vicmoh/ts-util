@@ -14,7 +14,7 @@ export class Log {
    * @param object or functions name.
    * @param message of the debug.
    */
-  print(object: any, ...message: any) {
+  print(object: any, message: any) {
     let className;
     if (typeof object === "string") {
       className = object?.toString();
@@ -24,7 +24,7 @@ export class Log {
     }
 
     className = className.replace(/[^\w]+/g, "");
-    const res = className.toString() + "(): " + message.toString();
+    const res = className.toString() + "(): " + message?.toString();
 
     if (!DISABLE_PRINT && !this.disable) console.log(res);
     return res;
