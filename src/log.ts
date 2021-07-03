@@ -14,7 +14,7 @@ export class Log {
    * @param object or functions name.
    * @param message of the debug.
    */
-  print(object: any, message: string) {
+  print(object: any, message: any) {
     let className;
     if (typeof object === "string") {
       className = object?.toString();
