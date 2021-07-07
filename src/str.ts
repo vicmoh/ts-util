@@ -26,6 +26,23 @@ export class StringUtil {
   }
 
   /**
+   * Replace the character of a string
+   * with another character.
+   * @param str string of a certain
+   * character to be replaced.
+   * @param index of the string where the
+   * character will be replaced.
+   * @param rep is the new character string
+   * the is placed based on the index.
+   * @return string where character has been changed.
+   */
+  repCharAt(index: number, rep: string) {
+    return (
+      this.value.substr(0, index) + rep + this.value.substr(index + rep.length)
+    );
+  }
+
+  /**
    * Convert all words in sentences of the first char
    * to upper case.
    */
