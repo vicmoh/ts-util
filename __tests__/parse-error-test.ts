@@ -8,30 +8,32 @@ class Test {
 
 class Test2 {}
 
-test("parseError() should parse a valid error.", () => {
-  try {
-    throw Error(ERR_MESS);
-  } catch (err) {
-    expect(parseError(err) === ERR_MESS).toBe(true);
-  }
+describe("parseError() function test. ", () => {
+  test("Should parse a valid error.", () => {
+    try {
+      throw Error(ERR_MESS);
+    } catch (err) {
+      expect(parseError(err)).toBe(ERR_MESS);
+    }
 
-  try {
-    throw ERR_MESS;
-  } catch (err) {
-    expect(parseError(err) === ERR_MESS).toBe(true);
-  }
-});
+    try {
+      throw ERR_MESS;
+    } catch (err) {
+      expect(parseError(err)).toBe(ERR_MESS);
+    }
+  });
 
-test("parseError() should convert non error type to string.", () => {
-  try {
-    throw new Test();
-  } catch (err) {
-    expect(parseError(err) === ERR_MESS).toBe(true);
-  }
+  test("Should convert non error type to string.", () => {
+    try {
+      throw new Test();
+    } catch (err) {
+      expect(parseError(err)).toBe(ERR_MESS);
+    }
 
-  try {
-    throw new Test2();
-  } catch (err) {
-    expect(parseError(err) !== ERR_MESS).toBe(true);
-  }
+    try {
+      throw new Test2();
+    } catch (err) {
+      expect(parseError(err) !== ERR_MESS).toBe(true);
+    }
+  });
 });
