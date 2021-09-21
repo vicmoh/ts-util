@@ -3,9 +3,7 @@
  * @return string of the error message.
  */
 export function parseError(err: any): string {
-  try {
+  if (typeof err?.message === "string" || err?.message instanceof String)
     return err?.message ?? err?.toString();
-  } catch (err) {
-    return err?.toString();
-  }
+  else return err?.toString();
 }
