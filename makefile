@@ -1,4 +1,4 @@
-all: lint-check build sure
+all: format lint-check build sure
 
 # Compile and build.
 build:
@@ -10,6 +10,10 @@ git: all
 	git add -A
 	git commit -m '$(m)'
 	git push
+
+format:
+	prettier --write "src/**"  "!src/packages/**"
+	prettier --write "__tests__/**"  "!__tests__/packages/**"
 
 # Checkes if it passes
 # the test harnesses.
